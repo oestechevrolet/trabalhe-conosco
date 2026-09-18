@@ -105,6 +105,28 @@
               </div>
 
               <div class="field">
+                <label for="cnh">CNH - Carteira Nacional de Habilitação <span>*</span></label>
+                <select
+                  id="cnh"
+                  name="fi-select-cnh"
+                  required
+                >
+                  <option value="" selected disabled>Selecione sua categoria de CNH</option>
+                  <option value="A">A — Moto</option>
+                  <option value="B">B — Carro</option>
+                  <option value="AB">AB — Moto e Carro</option>
+                  <option value="C">C — Caminhão / veículos de carga</option>
+                  <option value="AC">AC — Moto e Caminhão</option>
+                  <option value="D">D — Ônibus / veículos de passageiros</option>
+                  <option value="AD">AD — Moto e Ônibus</option>
+                  <option value="E">E — Combinações de veículos / categorias especiais</option>
+                  <option value="AE">AE — Moto e categoria E</option>
+                </select>
+                <small class="hint">Informe a categoria que consta na sua CNH.</small>
+                <small class="field-error" data-error-for="cnh"></small>
+              </div>
+
+              <div class="field">
                 <label for="phone">Telefone para contato <span>*</span></label>
                 <div class="phone-wrap">
                   <span class="phone-prefix">+55</span>

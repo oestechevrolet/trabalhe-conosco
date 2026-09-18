@@ -310,6 +310,7 @@ a {
 
 input[type="text"],
 input[type="tel"],
+select,
 textarea {
   width: 100%;
   border: 1px solid var(--gray-200);
@@ -321,9 +322,22 @@ textarea {
 }
 
 input[type="text"],
-input[type="tel"] {
+input[type="tel"],
+select {
+  width: 100%;
   height: 56px;
   padding: 0 16px;
+  font: inherit;
+}
+
+select {
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--black);
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 textarea {
@@ -334,12 +348,14 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
   border-color: #777;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.045);
 }
 
 input.invalid,
+select.invalid,
 textarea.invalid {
   border-color: var(--red);
 }

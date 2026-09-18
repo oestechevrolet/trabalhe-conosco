@@ -11,7 +11,7 @@
   const buttonLoading = submitButton.querySelector(".button-loading");
   const formStatus = document.getElementById("form-status");
 
-  const cpfInput = document.getElementById("cpf");
+  const cnhInput = document.getElementById("cnh");
   const phoneInput = document.getElementById("phone");
   const resumeInput = document.getElementById("resume");
   const dropZone = document.getElementById("drop-zone");
@@ -35,29 +35,6 @@
     return value.replace(/\D/g, "");
   }
 
-  function formatCPF(value) {
-    const digits = onlyDigits(value).slice(0, 11);
-
-    if (digits.length <= 3) {
-      return digits;
-    }
-
-    if (digits.length <= 6) {
-      return `${digits.slice(0, 3)}.${digits.slice(3)}`;
-    }
-
-    if (digits.length <= 9) {
-      return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
-    }
-
-    return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6, 9)}-${digits.slice(9)}`;
-  }
-
-  cpfInput.addEventListener("input", () => {
-    cpfInput.value = formatCPF(cpfInput.value);
-    clearFieldError(cpfInput);
-  });
-
   function formatPhone(value) {
     let digits = onlyDigits(value);
 
@@ -76,6 +53,10 @@
 
     return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
   }
+
+  cnhInput.addEventListener("change", () => {
+    clearFieldError(cnhInput);
+  });
 
   phoneInput.addEventListener("input", () => {
     phoneInput.value = formatPhone(phoneInput.value);
@@ -262,13 +243,11 @@
       clearFieldError(name);
     }
 
-    const cpfDigits = onlyDigits(cpfInput.value);
-
-    if (cpfDigits.length !== 11) {
-      showFieldError(cpfInput, "Informe um CPF válido com 11 dígitos.");
+    if (!cnhInput.value) {
+      showFieldError(cnhInput, "Selecione a categoria da sua CNH.");
       valid = false;
     } else {
-      clearFieldError(cpfInput);
+      clearFieldError(cnhInput);
     }
 
     const phoneDigits = onlyDigits(phoneInput.value);
